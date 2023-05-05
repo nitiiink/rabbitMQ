@@ -18,4 +18,4 @@ Node.js code for RabbitMQ tutorials
 
 - #### Publisher/Subscriber (deliver msg to multiple consumers)
     - node src/emit_logs.js
-    - node src/receive_logs.j
+    - node src/receive_logs.js
