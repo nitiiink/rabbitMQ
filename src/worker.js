@@ -24,7 +24,7 @@ amqp.connect('amqp://localhost', (err, connection) => {
         })
 
         //tells RabbitMQ not to give more than one message to a worker/consumer at a time
-        channel.prefetch(3);
+        channel.prefetch(1);
         console.log('Waiting for messages ........');
 
         //noAck : noAck set to false, application would have to manually (ack) the msg has been received, processed and rabbitmq is free to delete it.
@@ -38,7 +38,7 @@ amqp.connect('amqp://localhost', (err, connection) => {
             setTimeout(()=>{
                 console.log('[x] Done');
                 channel.ack(msg);
-            }, secs*2000)
+            }, secs*1000)
         }, {
             noAck : false
         })
