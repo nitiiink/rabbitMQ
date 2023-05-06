@@ -27,3 +27,10 @@ Node.js code for RabbitMQ tutorials
 - used direct exchange and routingKey to send msg to queue
   - node src/emit_logs_direct.js error server crashed 404 (routingKey set to error here )
   - node src/receive_logs_direct.js error (will listen to error logs)
+
+- #### Topic
+- queue bound with '#' will behave as fanout exchange
+- queue without '*' or '#' will behave as direct exchange
+  - node src/emit_logs_topic.js "kern.critical" 
+  - node src/receive_logs_topic.js "kern.*" (will consume msg like kern.critical, kern.orange, but not kern.orange.abc)
+  - node src/receive_logs_topic.js "kern.#" (it will consume all msg starting with Kernal) 
